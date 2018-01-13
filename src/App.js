@@ -1,15 +1,20 @@
 import React, { Component } from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
+import { ConnectedRouter } from 'react-router-redux'
+import { Provider } from 'react-redux'
 import { hot } from 'react-hot-loader'
+import store, { history } from 'store'
 import css from './App.css'
 import Timer from 'components/Timer'
 
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
-        <Routes />
-      </BrowserRouter>
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <Routes />
+        </ConnectedRouter>
+      </Provider>
     )
   }
 }
