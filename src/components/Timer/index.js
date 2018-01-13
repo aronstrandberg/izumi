@@ -6,7 +6,7 @@ import { startTimer } from 'timer/actions'
 
 class Timer extends Component {
   startTimer = () => {
-    this.props.startTimer(20)
+    this.props.startTimer(5)
   }
   componentDidMount = () => {
     this.startTimer()
