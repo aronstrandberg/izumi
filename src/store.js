@@ -1,4 +1,5 @@
-import { createStore, applyMiddleware, compose } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension'
 import { routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import createHistory from 'history/createBrowserHistory'
@@ -13,7 +14,7 @@ const middlewares = [
 
 const store = createStore(
   reducers,
-  compose(
+  composeWithDevTools(
     applyMiddleware(...middlewares)
   )
 )

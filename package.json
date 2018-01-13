@@ -2,7 +2,9 @@
   "name": "izumi",
   "version": "0.1.0",
   "private": true,
-  "devDependencies": {},
+  "devDependencies": {
+    "redux-devtools-extension": "^2.13.2"
+  },
   "dependencies": {
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
