@@ -1,20 +1,23 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { startTimer } from 'timer/actions'
+import { startWork } from 'timer/actions'
+import { setComplete } from 'timer/selectors'
 
 class Timer extends Component {
-  startTimer = () => {
-    this.props.startTimer(this.props.workTime)
+  startWork = () => {
+    this.props.startWork()
   }
   componentDidMount = () => {
-    this.startTimer()
+    this.startWork()
   }
   render = () => {
-    const { rounds, seconds } = this.props
+    const { round, rounds, seconds, resting, complete } = this.props
     return (
       <div>
-        <p>Round { rounds }</p>
+        <p>{ complete && 'DONE'  }</p>
+        <p>{ !complete && (resting ? 'REST' : 'WORK') }</p>
+        <p>Round { round }/{ rounds }</p>
         <p>Seconds { seconds }</p>
       </div>
     )
@@ -24,19 +27,21 @@ class Timer extends Component {
 function mapStateToProps(state, props) {
   return {
     seconds: state.timer.seconds,
-    rounds: state.timer.rounds,
-    workTime: state.timer.workTime,
+    round: state.timer.round,
+    resting: state.timer.resting,
+    rounds: state.timer.sizes.set,
+    complete: setComplete(state.timer)
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    startTimer(seconds) { dispatch(startTimer({ seconds })) },
+    startWork(seconds) { dispatch(startWork()) },
   }
 }
 
 Timer.propTypes = {
-  rounds: PropTypes.number,
+  round: PropTypes.number,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Timer)
