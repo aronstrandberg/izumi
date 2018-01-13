@@ -24,7 +24,7 @@ export function tick() {
     if (!timerComplete(timer)) {
       dispatch(timerTick())
     } else {
-      dispatch(startTimer({ seconds: 5 }))
+      dispatch(startTimer({ seconds: timer.workTime }))
     }
   }
 }

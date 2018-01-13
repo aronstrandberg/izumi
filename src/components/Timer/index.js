@@ -5,7 +5,7 @@ import { startTimer } from 'timer/actions'
 
 class Timer extends Component {
   startTimer = () => {
-    this.props.startTimer(5)
+    this.props.startTimer(this.props.workTime)
   }
   componentDidMount = () => {
     this.startTimer()
@@ -25,6 +25,7 @@ function mapStateToProps(state, props) {
   return {
     seconds: state.timer.seconds,
     rounds: state.timer.rounds,
+    workTime: state.timer.workTime,
   }
 }
 

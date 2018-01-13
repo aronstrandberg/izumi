@@ -6,6 +6,7 @@ import {
 const initialState = {
   seconds: 0,
   rounds: 0,
+  workTime: 12,
 }
 
 function reducer(state = initialState, { type, payload }) {
