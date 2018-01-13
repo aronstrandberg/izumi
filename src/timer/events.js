@@ -1,0 +1,2 @@
+export const TIMER_STARTED = 'IZUMI/TIMER_STARTED'
+export const TIMER_TICK = 'IZUMI/TIMER_TICK'
