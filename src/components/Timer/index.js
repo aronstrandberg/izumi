@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Countdown from 'react-countdown-now'
 import { startTimer } from 'timer/actions'
-const TWENTY = 20000
 
 class Timer extends Component {
   startTimer = () => {
@@ -13,25 +12,15 @@ class Timer extends Component {
     this.startTimer()
   }
   render = () => {
-    const { rounds } = this.props
+    const { rounds, seconds } = this.props
     return (
       <div>
-        <br />
-        Round { rounds }
-        <br />
-        <Countdown
-          date={Date.now() + TWENTY}
-          renderer={TimerRenderer}
-          onComplete={this.startTimer}
-        />
+        <p>Round { rounds }</p>
+        <p>Seconds { seconds }</p>
       </div>
     )
   }
 }
-
-const TimerRenderer = ({ seconds }) => (
-  <span>{seconds}</span>
-)
 
 function mapStateToProps(state, props) {
   return {
@@ -44,6 +33,10 @@ function mapDispatchToProps(dispatch) {
   return {
     startTimer(seconds) { dispatch(startTimer({ seconds })) },
   }
+}
+
+Timer.propTypes = {
+  rounds: PropTypes.number,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Timer)
