@@ -1,14 +1,20 @@
 import {
   TIMER_STARTED,
   TIMER_TICK,
+  TIMER_PAUSED,
+  TIMER_RESUMED,
   WORK_STARTED,
   REST_STARTED,
+  SET_STARTED,
+  SET_COMPLETED,
 } from 'timer/events'
 
 const initialState = {
+  active: false,
   seconds: 0,
   round: 0,
   resting: false,
+  paused: false,
   sizes: {
     work: 3,
     rest: 3,
@@ -24,11 +30,23 @@ function reducer(state = initialState, { type, payload }) {
     case TIMER_TICK: {
       return handleTimerTick(state, payload)
     }
+    case TIMER_PAUSED: {
+      return handleTimerPaused(state, payload)
+    }
+    case TIMER_RESUMED: {
+      return handleTimerResumed(state, payload)
+    }
     case WORK_STARTED: {
       return handleWorkStarted(state, payload)
     }
     case REST_STARTED: {
       return handleRestStarted(state, payload)
+    }
+    case SET_STARTED: {
+      return handleSetStarted(state, payload)
+    }
+    case SET_COMPLETED: {
+      return handleSetCompleted(state, payload)
     }
     default: {
       return state
@@ -51,6 +69,20 @@ function handleTimerTick(state, payload) {
   }
 }
 
+function handleTimerPaused(state, payload) {
+  return {
+    ...state,
+    paused: true
+  }
+}
+
+function handleTimerResumed(state, payload) {
+  return {
+    ...state,
+    paused: false
+  }
+}
+
 function handleWorkStarted(state, payload) {
   return {
     ...state,
@@ -63,6 +95,21 @@ function handleRestStarted(state, payload) {
   return {
     ...state,
     resting: true,
+  }
+}
+
+function handleSetStarted(state, payload) {
+  return {
+    ...state,
+    active: true,
+    round: 0
+  }
+}
+
+function handleSetCompleted(state, payload) {
+  return {
+    ...state,
+    active: false,
   }
 }
 

@@ -1,8 +1,12 @@
 import {
   TIMER_STARTED,
   TIMER_TICK,
+  TIMER_PAUSED,
+  TIMER_RESUMED,
   WORK_STARTED,
   REST_STARTED,
+  SET_STARTED,
+  SET_COMPLETED,
 } from 'timer/events'
 import {
   timerComplete,
@@ -25,8 +29,12 @@ export function tick() {
   return (dispatch, getState) => {
     const { timer } = getState()
 
+    if (timer.paused) {
+      return
+    }
+
     if (setComplete(timer)) {
-      dispatch(stop())
+      dispatch(completeSet())
       return
     }
 
@@ -45,16 +53,16 @@ export function tick() {
 export function startWork() {
   return (dispatch, getState) => {
     const { timer } = getState()
-    dispatch(startTimer({ seconds: timer.sizes.work }))
     dispatch(workStarted())
+    dispatch(startTimer({ seconds: timer.sizes.work }))
   }
 }
 
 export function startRest() {
   return (dispatch, getState) => {
     const { timer } = getState()
-    dispatch(startTimer({ seconds: timer.sizes.rest }))
     dispatch(restStarted())
+    dispatch(startTimer({ seconds: timer.sizes.rest }))
   }
 }
 
@@ -64,6 +72,50 @@ export function timerStarted({ seconds }) {
     payload: {
       seconds,
     }
+  }
+}
+
+export function pause() {
+  return (dispatch) => {
+    dispatch(timerPaused())
+  }
+}
+
+export function resume() {
+  return (dispatch) => {
+    dispatch(timerResumed())
+  }
+}
+
+export function togglePause() {
+  return (dispatch, getState) => {
+    const { timer } = getState()
+    if (timer.paused) {
+      dispatch(resume())
+    } else {
+      dispatch(pause())
+    }
+  }
+}
+
+export function stop() {
+  return (dispatch) => {
+    clearInterval(timer)
+  }
+}
+
+
+export function startSet() {
+  return (dispatch) => {
+    dispatch(setStarted())
+    dispatch(startWork())
+  }
+}
+
+export function completeSet() {
+  return (dispatch) => {
+    dispatch(setCompleted())
+    dispatch(stop())
   }
 }
 
@@ -85,8 +137,26 @@ export function restStarted() {
   }
 }
 
-export function stop() {
-  return (dispatch) => {
-    clearInterval(timer)
+export function timerPaused() {
+  return {
+    type: TIMER_PAUSED
+  }
+}
+
+export function timerResumed() {
+  return {
+    type: TIMER_RESUMED
+  }
+}
+
+export function setStarted() {
+  return {
+    type: SET_STARTED
+  }
+}
+
+export function setCompleted() {
+  return {
+    type: SET_COMPLETED
   }
 }

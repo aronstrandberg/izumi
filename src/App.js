@@ -6,6 +6,7 @@ import { hot } from 'react-hot-loader'
 import store, { history } from 'store'
 import css from './App.css'
 import Timer from 'components/Timer'
+import Controls from 'components/Controls'
 
 class App extends Component {
   render() {
@@ -29,6 +30,7 @@ const Home = () => (
   <div className={css.app}>
     izumi
     <Timer />
+    <Controls />
   </div>
 )
 
