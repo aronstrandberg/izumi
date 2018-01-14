@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { setComplete } from 'timer/selectors'
 
-class Tabat extends Component {
+class Tabata extends Component {
   render = () => {
     const { active, round, rounds, seconds, resting, complete } = this.props
     return (
