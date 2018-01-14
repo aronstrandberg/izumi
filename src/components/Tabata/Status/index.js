@@ -13,10 +13,14 @@ function Status({ timer }) {
   )
 }
 
-function mapStateToProps(state, props) {
+function mapStateToProps({ timer }, props) {
   return {
-    timer: state.timer,
+    timer,
   }
+}
+
+Status.propTypes = {
+  timer: PropTypes.object.isRequired,
 }
 
 export default connect(mapStateToProps)(Status)

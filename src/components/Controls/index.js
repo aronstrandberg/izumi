@@ -42,4 +42,9 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
+Controls.propTypes = {
+  active: PropTypes.bool.isRequired,
+  paused: PropTypes.bool.isRequired,
+}
+
 export default connect(mapStateToProps, mapDispatchToProps)(Controls)

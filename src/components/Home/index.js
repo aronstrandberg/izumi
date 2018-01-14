@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Header from 'components/Header'
 import Tabata from 'components/Tabata'
 import Controls from 'components/Controls'

@@ -18,4 +18,9 @@ function mapStateToProps({ timer }, props) {
   }
 }
 
+Round.propTypes = {
+  round: PropTypes.number.isRequired,
+  rounds: PropTypes.number.isRequired,
+}
+
 export default connect(mapStateToProps)(Round)
