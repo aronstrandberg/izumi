@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { startSet, togglePause } from 'timer/actions'
+import { startSet, togglePause, reset } from 'timer/actions'
 import { getStartButtonText } from 'timer/selectors'
 import Button from 'components/Button'
 import css from './styles.css'
@@ -23,6 +23,9 @@ class Controls extends Component {
         <Button onClick={this.handleClick}>
           { buttonText }
         </Button>
+        <Button onClick={this.props.reset}>
+          Reset
+        </Button>
       </div>
     )
   }
@@ -39,6 +42,7 @@ function mapDispatchToProps(dispatch) {
   return {
     start() { dispatch(startSet()) },
     togglePause() { dispatch(togglePause()) },
+    reset() { dispatch(reset()) },
   }
 }
 

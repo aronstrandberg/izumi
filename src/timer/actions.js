@@ -3,6 +3,7 @@ import {
   TIMER_TICK,
   TIMER_PAUSED,
   TIMER_RESUMED,
+  TIMER_RESET,
   WORK_STARTED,
   REST_STARTED,
   SET_STARTED,
@@ -29,7 +30,7 @@ export function tick() {
   return (dispatch, getState) => {
     const { timer } = getState()
 
-    if (timer.paused) {
+    if (timer.paused || !timer.active) {
       return
     }
 
@@ -119,6 +120,12 @@ export function completeSet() {
   }
 }
 
+export function reset() {
+  return (dispatch) => {
+    dispatch(timerReset())
+  }
+}
+
 export function timerTick() {
   return {
     type: TIMER_TICK
@@ -146,6 +153,12 @@ export function timerPaused() {
 export function timerResumed() {
   return {
     type: TIMER_RESUMED
+  }
+}
+
+export function timerReset() {
+  return {
+    type: TIMER_RESET
   }
 }
 

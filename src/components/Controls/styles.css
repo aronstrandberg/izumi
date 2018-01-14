@@ -1,5 +1,11 @@
 .controls {
   flex: 1;
   display: flex;
+  width: 90%;
+  margin: 1rem;
   justify-content: center;
+}
+
+.controls button ~ button {
+  margin-left: 1rem;
 }

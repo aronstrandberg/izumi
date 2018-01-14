@@ -3,6 +3,7 @@ import {
   TIMER_TICK,
   TIMER_PAUSED,
   TIMER_RESUMED,
+  TIMER_RESET,
   WORK_STARTED,
   REST_STARTED,
   SET_STARTED,
@@ -48,6 +49,9 @@ function reducer(state = initialState, { type, payload }) {
     case SET_COMPLETED: {
       return handleSetCompleted(state, payload)
     }
+    case TIMER_RESET: {
+      return handleTimerReset(state, payload)
+    }
     default: {
       return state
     }
@@ -81,6 +85,10 @@ function handleTimerResumed(state, payload) {
     ...state,
     paused: false
   }
+}
+
+function handleTimerReset(state, payload) {
+  return initialState
 }
 
 function handleWorkStarted(state, payload) {
