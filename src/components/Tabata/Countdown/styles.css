@@ -1,0 +1,9 @@
+.countdown {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8em;
+  font-weight: 100;
+  margin: 0;
+}

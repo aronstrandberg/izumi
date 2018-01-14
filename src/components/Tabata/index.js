@@ -2,16 +2,21 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { setComplete } from 'timer/selectors'
+import Status from 'components/Tabata/Status'
+import Round from 'components/Tabata/Round'
+import Countdown from 'components/Tabata/Countdown'
+import css from './styles.css'
 
 class Tabata extends Component {
   render = () => {
     const { active, round, rounds, seconds, resting, complete } = this.props
     return (
-      <div>
-        <p>{ complete && 'DONE' }</p>
-        <p>{ active && !complete && (resting ? 'REST' : 'WORK') }</p>
-        <p>Round { round }/{ rounds }</p>
-        <p>Seconds { seconds }</p>
+      <div className={css.tabata}>
+        <div className={css.data}>
+          <Round />
+          <Status />
+        </div>
+        <Countdown />
       </div>
     )
   }

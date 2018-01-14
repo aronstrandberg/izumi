@@ -1,13 +1,12 @@
 .header {
   display: flex;
-  flex: 1;
   width: 100%;
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   font-size: 2rem;
-  height: 5rem;
+  height: 6rem;
   background: #fa6f56;
   color: #fbd594;
 }

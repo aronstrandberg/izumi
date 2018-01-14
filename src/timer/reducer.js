@@ -18,6 +18,7 @@ const initialState = {
   round: 0,
   resting: false,
   paused: false,
+  completed: false,
   sizes: defaultTabataSizes()
 }
 
@@ -101,6 +102,7 @@ function handleSetStarted(state, payload) {
   return {
     ...state,
     active: true,
+    completed: false,
     round: 0
   }
 }
@@ -109,6 +111,7 @@ function handleSetCompleted(state, payload) {
   return {
     ...state,
     active: false,
+    completed: true,
   }
 }
 
