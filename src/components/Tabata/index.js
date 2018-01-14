@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { setComplete } from 'timer/selectors'
 
-class Timer extends Component {
+class Tabat extends Component {
   render = () => {
     const { active, round, rounds, seconds, resting, complete } = this.props
     return (
@@ -28,11 +28,11 @@ function mapStateToProps(state, props) {
   }
 }
 
-Timer.propTypes = {
+Tabata.propTypes = {
   round: PropTypes.number,
 }
 
-export default connect(mapStateToProps)(Timer)
+export default connect(mapStateToProps)(Tabata)
 export {
-  Timer
+  Tabata
 }
