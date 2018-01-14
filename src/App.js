@@ -5,8 +5,7 @@ import { Provider } from 'react-redux'
 import { hot } from 'react-hot-loader'
 import store, { history } from 'store'
 import css from './App.css'
-import Timer from 'components/Timer'
-import Controls from 'components/Controls'
+import Home from 'components/Home'
 
 class App extends Component {
   render() {
@@ -21,16 +20,16 @@ class App extends Component {
 }
 
 const Routes = () => (
-  <Switch>
-    <Route exact path="/" component={Home} />
-  </Switch>
+  <Layout>
+    <Switch>
+      <Route exact path="/" component={Home} />
+    </Switch>
+  </Layout>
 )
 
-const Home = () => (
+const Layout = ({ children }) => (
   <div className={css.app}>
-    izumi
-    <Timer />
-    <Controls />
+    { children }
   </div>
 )
 
