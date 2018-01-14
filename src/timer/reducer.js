@@ -8,6 +8,9 @@ import {
   SET_STARTED,
   SET_COMPLETED,
 } from 'timer/events'
+import {
+  defaultTabataSizes
+} from 'timer/helpers'
 
 const initialState = {
   active: false,
@@ -15,11 +18,7 @@ const initialState = {
   round: 0,
   resting: false,
   paused: false,
-  sizes: {
-    work: 3,
-    rest: 3,
-    set: 3
-  }
+  sizes: defaultTabataSizes()
 }
 
 function reducer(state = initialState, { type, payload }) {
