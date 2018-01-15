@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transition: background 0.5s, color 0.5s;
 }
 
 .main {
@@ -12,4 +13,19 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.home.active {
+  background: #37d4ba;
+  color: #f8eac2;
+}
+
+.home.resting {
+  background: #e7776b;
+  color: #f8eac2;
+}
+
+.home.paused {
+  background: #f8eac2;
+  color: #343b44;
 }

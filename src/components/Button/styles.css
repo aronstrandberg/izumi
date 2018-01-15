@@ -2,15 +2,24 @@
   font-size: 16px;
   padding: 0;
   height: 3rem;
-  width: 15rem;
+  width: 50%;
+  max-width: 15rem;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: background 0.2s, color 0.2s;
   border: 0;
-  background: #303B4B;
-  color: white;
   border-radius: 3px;
   text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.25);
+  color: #f8eac2;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:hover {
+  background: rgba(0, 0, 0, 0.5);
 }

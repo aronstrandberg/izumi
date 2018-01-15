@@ -1,9 +1,10 @@
 .controls {
-  flex: 1;
+  height: 4rem;
   display: flex;
   width: 90%;
   margin: 1rem;
   justify-content: center;
+  align-items: center;
 }
 
 .controls button ~ button {
