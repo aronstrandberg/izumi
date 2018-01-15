@@ -9,7 +9,7 @@
 .logo {
   flex: 1;
   font-size: 2rem;
-  position: fixed;
+  position: absolute;
   align-items: center;
   text-transform: uppercase;
   letter-spacing: 0.15em;
