@@ -45,6 +45,9 @@ function About() {
             </a>, and I'll take a look as soon as I can.
           </p>
         </div>
+        <footer className={css.footer}>
+          &times;
+        </footer>
       </main>
     </div>
   )
