@@ -119,6 +119,7 @@ function handleSetCompleted(state, payload) {
   return {
     ...state,
     active: false,
+    resting: false,
     completed: true,
   }
 }
