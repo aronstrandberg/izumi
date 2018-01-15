@@ -3,8 +3,35 @@
   width: 100%;
   justify-content: center;
   align-items: center;
+  height: 6rem;
+}
+
+.logo {
+  flex: 1;
+  font-size: 2rem;
+  position: fixed;
+  align-items: center;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  font-size: 2rem;
-  height: 6rem;
+}
+
+.navigation {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding-right: 2rem;
+}
+
+.header a,
+.header a:visited {
+  color: #f8eac2;
+  text-decoration: none;
+}
+
+.navigation a {
+  border-bottom: 2px solid transparent;
+}
+
+.navigation a:hover {
+  border-bottom: 2px solid;
 }
