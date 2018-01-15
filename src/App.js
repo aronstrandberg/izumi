@@ -6,6 +6,7 @@ import { hot } from 'react-hot-loader'
 import store, { history } from 'store'
 import css from './App.css'
 import Home from 'components/Home'
+import About from 'components/About'
 
 class App extends Component {
   render() {
@@ -23,6 +24,7 @@ const Routes = () => (
   <Layout>
     <Switch>
       <Route exact path="/" component={Home} />
+      <Route exact path="/about" component={About} />
     </Switch>
   </Layout>
 )

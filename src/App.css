@@ -12,3 +12,9 @@
   background: #739298;
   color: #f8eac2;
 }
+
+a,
+a:visited {
+  color: #f8eac2;
+  text-decoration: none;
+}

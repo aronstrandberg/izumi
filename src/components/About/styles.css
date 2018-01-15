@@ -1,0 +1,33 @@
+.about {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.5s, color 0.5s;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  text-align: left;
+  max-width: 40rem;
+}
+
+.headline {
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+p {
+  color: #343b44;
+}
+
+.faq {
+  margin-top: 3rem;
+}
